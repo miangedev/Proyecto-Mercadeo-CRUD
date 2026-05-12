@@ -1,0 +1,39 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Conexion {
+
+    static Connection con = null;
+
+    public static Connection abrirConexion() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String urldb = "jdbc:mysql://localhost:3307/gestion_de_campanas_mercadeo?serverTimezone=UTC";
+            String usr = "root";
+            String psw = "";
+            con = (Connection) DriverManager.getConnection(urldb, usr, psw);
+            System.out.println("!!!Conexión Exitosa!!!");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error >> Driver no Instalado!!");
+        } catch (SQLException e) {
+            System.out.println("Error >> de conexión con la BD");
+        }
+        return con;
+    }
+
+    public static void cerrarConexion() {
+                try {
+            if (con != null) {
+                con.close();
+                System.out.println("!!! La conexion se cerró con éxito !!!");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
