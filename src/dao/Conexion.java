@@ -11,7 +11,7 @@ public class Conexion {
     public static Connection abrirConexion() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String urldb = "jdbc:mysql://localhost:3307/gestion_de_campanas_mercadeo?serverTimezone=UTC";
+            String urldb = "jdbc:mysql://localhost:3306/gestion_de_campanas_mercadeo?serverTimezone=UTC";
             String usr = "root";
             String psw = "";
             con = (Connection) DriverManager.getConnection(urldb, usr, psw);
