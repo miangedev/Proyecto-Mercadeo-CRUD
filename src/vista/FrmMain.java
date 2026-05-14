@@ -30,7 +30,7 @@ public class FrmMain extends javax.swing.JFrame {
     
 
     public FrmMain() {
-        
+        dao.Conexion.abrirConexion();
         initComponents();
     }
 
@@ -81,8 +81,7 @@ public class FrmMain extends javax.swing.JFrame {
                 .addGap(144, 144, 144))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 51, 51));
-
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("Archivo");
         submenuSalir.setText("Salir");
         submenuSalir.addActionListener(new java.awt.event.ActionListener() {
